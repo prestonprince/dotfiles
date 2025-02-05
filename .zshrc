@@ -140,6 +140,7 @@ alias beam="cd ~/projects/beam/"
 alias gp="git push"
 alias gap="git add -p"
 alias gad="git add ."
+alias notes="cd ~/Documents/notes/"
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /Users/preston/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
