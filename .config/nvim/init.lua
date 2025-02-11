@@ -834,19 +834,19 @@ require('lazy').setup({
     end,
   },
 
-  {
-    'boganworld/crackboard.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('crackboard').setup {
-        session_key = '41ad52727dc5c31b5627c9a240ccb240b2a1bbc174acdac24a33b938f11ff3e0',
-      }
-    end,
-  },
+  -- {
+  --   'boganworld/crackboard.nvim',
+  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  --   config = function()
+  --     require('crackboard').setup {
+  --       session_key = '41ad52727dc5c31b5627c9a240ccb240b2a1bbc174acdac24a33b938f11ff3e0',
+  --     }
+  --   end,
+  -- },
 
   {
-    -- 'folke/tokyonight.nvim',
-    'navarasu/onedark.nvim',
+    'folke/tokyonight.nvim',
+    -- 'navarasu/onedark.nvim',
     -- 'sainnhe/everforest',
     -- 'rose-pine/neovim',
     -- 'sainnhe/sonokai',
@@ -861,15 +861,15 @@ require('lazy').setup({
     -- 'olivercederborg/poimandres.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
-      require('onedark').setup {
-        style = 'darker',
-      }
+      -- require('onedark').setup {
+      --   style = 'darker',
+      -- }
       -- require('catppuccin').setup {
       --   transparent_background = true,
       -- }
-      -- require('tokyonight').setup {
-      --   transparent = true,
-      -- }
+      require('tokyonight').setup {
+        transparent = true,
+      }
       -- require('rose-pine').setup {
       --   styles = {
       --     italic = false,
@@ -892,7 +892,7 @@ require('lazy').setup({
     end,
     init = function()
       -- Load the colorscheme here.
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'tokyonight'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
@@ -910,7 +910,7 @@ require('lazy').setup({
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'onedark',
+          theme = 'tokyonight',
         },
       }
     end,
