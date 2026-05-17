@@ -23,9 +23,12 @@ quit-after-last-window-closed = true
 
 mouse-hide-while-typing = true
 
-font-family = "Jetbrains Mono"
+font-family = "JetBrains Mono"
 font-size = 16
-theme = tokyonight 
+theme = dark:TokyoNight Night,light:TokyoNight Day 
 macos-titlebar-style = transparent 
 window-save-state = always
 
+# background-opacity = 0.5
+# background-blur = true
+keybind = shift+enter=text:\x1b\r

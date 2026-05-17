@@ -571,7 +571,7 @@ require('lazy').setup({
         -- gopls = {},
         -- pyright = {},
         rust_analyzer = {},
-        ocamllsp = {},
+        -- ocamllsp = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -601,28 +601,25 @@ require('lazy').setup({
           cmd = { '/Users/preston/zls-versions/zls-macos-aarch64-0.14.0-dev.166+db05a1c/zls' },
         },
 
-        -- eslint = {
-        --   on_attach = function(client, bufnr)
-        --     vim.api.nvim_create_autocmd('BufWritePre', {
-        --       buffer = bufnr,
-        --       callback = function()
-        --         -- This is the equivalent of "source.fixAll.eslint": "explicit"
-        --         vim.lsp.buf.code_action {
-        --           apply = true,
-        --           context = {
-        --             only = { 'source.fixAll' },
-        --             diagnostics = {},
-        --           },
-        --         }
-        --       end,
-        --     })
-        --   end,
-        --   settings = {
-        --     workingDirectory = { mode = 'auto' },
-        --     -- This settings configuration ensures that ESLint
-        --     -- runs in the correct working directory
-        --   },
-        -- },
+        eslint = {
+          on_attach = function(client, bufnr)
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              buffer = bufnr,
+              callback = function()
+                vim.lsp.buf.code_action {
+                  apply = true,
+                  context = {
+                    only = { 'source.fixAll' },
+                    diagnostics = {},
+                  },
+                }
+              end,
+            })
+          end,
+          settings = {
+            workingDirectory = { mode = 'auto' },
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},
@@ -653,7 +650,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        -- 'eslint-lsp',
+        'eslint-lsp',
         'typescript-language-server',
         'gopls',
         'prettier',
@@ -708,13 +705,18 @@ require('lazy').setup({
         lua = { 'stylua' },
         zig = { 'zig fmt' },
         html = { 'prettier' },
-        -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
-        --
-        -- You can use a sub-list to tell conform to run *until* a formatter
-        -- is found.
-        -- javascript = { { 'prettierd', 'prettier' } },
-        -- typescript = { { 'prettierd', 'prettier' } },
+        javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        json = { 'prettier' },
+        jsonc = { 'prettier' },
+        css = { 'prettier' },
+        scss = { 'prettier' },
+        markdown = { 'prettier' },
+        yaml = { 'prettier' },
+        vue = { 'prettier' },
       },
     },
   },
@@ -846,6 +848,9 @@ require('lazy').setup({
 
   {
     'folke/tokyonight.nvim',
+    -- 'rockyzhang24/arctic.nvim',
+    -- branch = 'v2',
+    -- dependencies = { 'rktjmp/lush.nvim' },
     -- 'navarasu/onedark.nvim',
     -- 'sainnhe/everforest',
     -- 'rose-pine/neovim',
